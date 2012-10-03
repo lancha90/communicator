@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ingeniería UQ</title>
+
+<script src="js/source.js"></script>
+<script src="jquery.mobile/jquery-1.7.2.min"></script>
+<script src="jquery.mobile/jquery.mobile-1.1.1.min.js"></script>
+<script src="js/login.js"></script>
+<script src="js/general_login.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="./cordova-1.9.0.js"></script>
+
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.css" />
+
+<link rel="stylesheet" href="style/index.css" />
+</head>
+<body>
+	<!-- Home -->
+	<section id="login" data-role="page">
+			<div data-theme="a" data-role="header">
+				<h5>Facultad de Ingeniería</h5>
+			</div>
+			<div data-role="content">
+				<h2 style="text-align: center;">Bienvenidos</h2>
+				<form action="">
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="user"> Nombre de Usuario </label> <input name="user"
+								id="user" placeholder="" value="" type="text" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="contrasena"> Contraseña </label> <input
+								name="passwd" id="passwd" placeholder="" value=""
+								type="password" />
+						</fieldset>
+					</div>
+					<div id="savePasswd" data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="vertical"
+							data-mini="true">
+							<legend> </legend>
+							<input id="checkbox4" name="" type="checkbox" /> <label
+								for="checkbox4"> Almacenar Contraseña </label>
+						</fieldset>
+					</div>
+				</form>
+				<div>
+					<input id="btnLogin" type="submit" data-icon="check" data-iconpos="right"
+						value="Iniciar Sesión" data-mini="true" /> 
+						<br /> 
+						<a id="recoveryPasswd" href="" data-transition="fade">Recordar Contraseña</a> 
+						<br /> 
+						<a id="register" href="#register" data-transition="fade">Registrarse</a>
+				</div>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed">
+				<h3>Footer</h3>
+			</div>
+	</section>
+
+
+	<!-- Registro -->
+
+	<section id="register" data-role="page">
+	<div data-theme="a" data-role="header">
+                <h1>
+                    Facultad de Ingeniería
+                </h1>
+            </div>
+            <div data-role="content">
+                <h2>
+                    Registrar Usuario
+                </h2>
+                <form action="" >
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="user_name">
+                                Nombre de Usuario
+                            </label>
+                            <input name="user_name" id="user_name" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="user_passwd">
+                                Contraseña
+                            </label>
+                            <input name="user_passwd" id="user_passwd" placeholder="" value="" type="password" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="repeat_passwd">
+                                Repetir Contraseña
+                            </label>
+                            <input name="repeat_passwd" id="repeat_passwd" placeholder="" value="" type="password" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="name">
+                                Nombre
+                            </label>
+                            <input name="name" id="name" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="second_name">
+                                Apellido
+                            </label>
+                            <input name="second_name" id="second_name" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="code">
+                                Codigo
+                            </label>
+                            <input name="code" id="code" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="contrasena">
+                                Email
+                            </label>
+                            <input name="email" id="email" placeholder="" value="" type="email" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="depence">
+                            Dependencia
+                        </label>
+                        <select id="depence" name="">
+                            <option value="isc">
+                                Ing. Sistemas y Computación
+                            </option>
+                            <option value="ie">
+                                Ing. Electronica
+                            </option>
+                            <option value="tt">
+                                Tec. Topografía
+                            </option>
+                            <option value="toc">
+                                Tec. Obras Civiles
+                            </option>
+                            <option value="ic">
+                                Ing. Civil
+                            </option>
+                            <option value="dc">
+                                Decanatura
+                            </option>
+                            <option value="av">
+                                Audivisuales
+                            </option>
+                            <option value="et">
+                                Extensión
+                            </option>
+                        </select>
+                    </div>
+                    <div id="rol" data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="vertical">
+                            <legend>
+                            </legend>
+                            <input id="radio1" name="" value="teacher" type="radio" />
+                            <label for="radio1">
+                                Profesor
+                            </label>
+                            <input id="radio2" name="" value="student" type="radio" />
+                            <label for="radio2">
+                                Estudiante
+                            </label>
+                            <input id="radio3" name="" value="manager" type="radio" />
+                            <label for="radio3">
+                                Administrativo
+                            </label>
+                            
+                    
+                        </fieldset>
+                    </div>
+                </form>
+                    <input id="btnRegister" type="submit" data-icon="check" data-iconpos="right" value="Registrar" />
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    Footer
+                </h3>
+            </div>
+	</section>
+	
+	
+	<!-- Registro Satisfactorio -->
+	<section id="registerOK" data-role="page">
+	<div data-theme="a" data-role="header">
+				<h5>Facultad de Ingeniería</h5>
+			</div>
+			<div data-role="content">
+				<h2 style="text-align: center;">Su registro se realizo satisfactoriamente, en un maximo de 24 horas su cuenta será activada</h2>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    Footer
+                </h3>
+            </div>
+
+
+	</section>
+</body>
+</html>
