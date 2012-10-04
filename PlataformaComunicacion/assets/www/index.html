@@ -8,12 +8,11 @@
 <script src="jquery.mobile/jquery-1.7.2.min"></script>
 <script src="jquery.mobile/jquery.mobile-1.1.1.min.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/general_menu.js"></script>
 
 <script type="text/javascript" charset="utf-8" src="./cordova-1.9.0.js"></script>
-
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.min.css" />
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.css" />
-
 <link rel="stylesheet" href="style/menu.css" />
 </head>
 <body>
@@ -28,17 +27,17 @@
 			<ul id="menu" data-role="listview" data-divider-theme="b"
 				data-inset="true">
 				<li data-role="list-divider" role="heading">Menu Principal</li>
-				<li data-theme="c"><a href="#page1" data-transition="slide">
+				<li data-theme="c"><a data-transition="slide">
 						Dependencias <span class="ui-li-count">7</span>
 				</a>
-					<ul>
-						<li>Facultad</li>
-						<li>Centro de Extensión</li>
-						<li>Ingeniería de Sistemas y Computación</li>
-						<li>Ingeniería Electronica</li>
-						<li>Ingeniería Civil</li>
-						<li>Tecnologia en Topografía</li>
-						<li>Tecnologia en Obras Civiles</li>
+					<ul data-inset="true">
+						<li><a id="btnFacultad">Facultad</a></li>
+						<li><a id="btnExtension">Centro de Extensión</a></li>
+						<li><a id="btnIngSistemas">Ingeniería de Sistemas y Computación</a></li>
+						<li><a id="btnIngElectronica">Ingeniería Electronica</a></li>
+						<li><a id="btnIngCivil">Ingeniería Civil</a></li>
+						<li><a id="btnTecTopografia">Tecnologia en Topografía</a></li>
+						<li><a id="btnTecObras">Tecnologia en Obras Civiles</a></li>
 					</ul></li>
 				<li data-theme="c"><a href="#page1" data-transition="slide">
 						Convocatorias <span class="ui-li-count">5</span>

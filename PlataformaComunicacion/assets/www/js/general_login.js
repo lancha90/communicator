@@ -25,7 +25,7 @@ function login() {
 
 						if (data.code == LOGIN_OK) {
 							reportLog('Sesión iniciada!', '[LOGIN]');
-							$.mobile.changePage("./index.html");
+							top.location.href = "./index.html";
 						} else if (data.code == LOGIN_FALSE) {
 							reportLog(
 									'Nombre de usuario o contraseña no son correctos!',
