@@ -19,15 +19,17 @@ class SecurityController < ApplicationController
 
   def verifyLogin
 
-    @nombre = params[:nombre]
-    @passwd = params[:passwd]
+    ##@usuario = User.where("username = ? AND password = ?", params[:nombre], params[:passwd])     
 
-    logger.info { 'esta es la prueba '+@nombre+' '+@passwd }
+    @usuario = User.find(:all,:conditions => {:username => params[:nombre], :password =>params[:passwd]})
 
-    if @nombre == @passwd
-      render json: {response:'OK'}
+
+    #logger.info { '[LOGIN] - El usuario '+params[:nombre]+' inicion sesion '+@usuario.user.code}
+
+    if @usuario != nil
+      render json: @usuario#{response:'OK'}
     else
-      render json: {response:'FALSE'}
+      render json: @usuario#{response:'FALSE'}
     end
 
   end
