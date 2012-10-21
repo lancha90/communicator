@@ -4,34 +4,34 @@ class SecurityController < ApplicationController
     @nombre = params[:username]
     @passwd = params[:passwd]
 
-    # respond_to do |format|
-    # format.html
-    # format.json do
-    # render json: {nombre: @nombre}
-    # end
-    # format.xml do
-    # render xml: {nombre: @nombre}
-    # end
-    # end
-
     redirect_to action: :verifyLogin, nombre: @nombre, passwd: @passwd
   end
 
   def verifyLogin
 
-    ##@usuario = User.where("username = ? AND password = ?", params[:nombre], params[:passwd])     
+    ##@usuario = User.where("username = ? AND password = ?", params[:nombre], params[:passwd])
 
-    @usuario = User.find(:all,:conditions => {:username => params[:nombre], :password =>params[:passwd]})
+    @username = params[:nombre]
+    @passwd = params[:passwd]
+
+    @usuario = User.find(:all,:conditions => {:username =>@username , :password =>@passwd},:limit => 1)
+
+    if @usuario.length > 0
+      logger.info { "[LOGIN - OK] - El usuario #{@username} inicio sesion correctamente" }
+      LoginRegister.create(:user=>@usuario[0])
+      email_sent
+      render json: {response:'OK'}
 
 
-    #logger.info { '[LOGIN] - El usuario '+params[:nombre]+' inicion sesion '+@usuario.user.code}
-
-    if @usuario != nil
-      render json: @usuario#{response:'OK'}
     else
-      render json: @usuario#{response:'FALSE'}
+      render json: {response:'FALSE'}
+      logger.info { "[LOGIN - ERROR] - El usuario #{@username} inicion sesion" }
     end
 
+  end
+
+  def email_sent
+    SendNew::sendRegister('mao_0627@hotmail.com').deliver
   end
 
 end

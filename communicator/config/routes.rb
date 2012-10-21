@@ -1,5 +1,6 @@
 Communicator::Application.routes.draw do
   
+  resources :login_registers
   resources :users
 
   get '/login' => 'security#verifyLogin'
