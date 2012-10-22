@@ -1,4 +1,5 @@
 class SecurityController < ApplicationController
+  
   def login
 
     @nombre = params[:username]
