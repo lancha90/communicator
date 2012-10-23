@@ -24,13 +24,13 @@ function login() {
 					success : function(data) {
 
 						if (data.code == LOGIN_OK) {
-							reportLog('Sesión iniciada!', '[LOGIN]');
+							reportLog('Sesiï¿½n iniciada!', '[LOGIN]');
 							top.location.href = "./index.html";
 						} else if (data.code == LOGIN_FALSE) {
 							reportLog(
-									'Nombre de usuario o contraseña no son correctos!',
+									'Nombre de usuario o contraseï¿½a no son correctos!',
 									'[Login]');
-							showError('Nombre de usuario o contraseña no son correctos!');
+							showError('Nombre de usuario o contraseï¿½a no son correctos!');
 						} else {
 							reportLog('Error Interno del Servidor!', '[LOGIN]');
 							showError('Error Desconocido!');
@@ -73,15 +73,19 @@ function register() {
 			type : "POST",
 			dataType : 'json',
 			data : {
-				user : $('#user_name').val(),
-				passwd : $('#user_passwd').val(),
-				name: $('#name').val()+' '+$('#second_name'),
-				code: $('#code').val(),
-				email: $('#email').val(),
-				dependence: $('#depence').val(),
+				"user[username]": $('#user_name').val(),
+				"user[password]": $('#user_passwd').val(),
+				"user[firtname]": $('#name').val(),
+				"user[secondname]" :$('#second_name').val(),
+				"user[code]": $('#code').val(),
+				"user[email]": $('#email').val(),
+				"user[dependence]": $('#depence').val(),
+				"user[rol]":$('#depence').val() 
+				
+				/*
 				teacher: $("#radio1").is(':checked'),
 				student: $("#radio2").is(':checked'),
-				manager: $("#radio3").is(':checked')
+				manager: $("#radio3").is(':checked')*/
 			},
 			success : function(data) {
 
@@ -140,13 +144,13 @@ function validateRegister() {
 
 	if ( $('#user_passwd').val().length < 6) {
 		state = false;
-		reportLog('La contraseña no es mayor a 6 caracteres!', '[REGISTER]');
+		reportLog('La contraseï¿½a no es mayor a 6 caracteres!', '[REGISTER]');
 		$("label[for='user_passwd']").css({ color: "#FF0000" });
 	}
 	
 	if ( $('#repeat_passwd').val() != $('#user_passwd').val()) {
 		state = false;
-		reportLog('La contraseña no coincide en ambos campos!', '[REGISTER]');
+		reportLog('La contraseï¿½a no coincide en ambos campos!', '[REGISTER]');
 		$("label[for='repeat_passwd']").css({ color: "#FF0000" });
 		$("label[for='user_passwd']").css({ color: "#FF0000" });
 
@@ -208,7 +212,7 @@ function validateLogin() {
 
 	if ( $('#passwd').val().length < 6) {
 		state = false;
-		reportLog('La contraseña no es mayor a 6 caracteres!', '[LOGIN]');
+		reportLog('La contraseï¿½a no es mayor a 6 caracteres!', '[LOGIN]');
 		$("label[for='passwd']").css({ color: "#FF0000" });
 	}
 

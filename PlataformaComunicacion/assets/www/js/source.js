@@ -1,4 +1,4 @@
-var URL_DOMAIN = 'http://lancha90.kodingen.com/sw/';
+var URL_DOMAIN = 'http://192.168.1.2:3000/';//'http://lancha90.kodingen.com/sw/';
 /**
  * url del servicio para realizar el consumo de datos
  */
@@ -6,7 +6,7 @@ var URL_LOGIN = URL_DOMAIN+'login.php';
 /**
  * url del servicio para realizar el registro de un usuario
  */
-var URL_REGISTER = URL_DOMAIN+'register.php';
+var URL_REGISTER = URL_DOMAIN+'/users/new';
 
 
 /**
