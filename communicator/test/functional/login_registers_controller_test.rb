@@ -5,6 +5,7 @@ class LoginRegistersControllerTest < ActionController::TestCase
     @login_register = login_registers(:one)
   end
 
+
   test "should get index" do
     get :index
     assert_response :success

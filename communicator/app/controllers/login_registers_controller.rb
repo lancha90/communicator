@@ -5,6 +5,7 @@ class LoginRegistersController < ApplicationController
     @login_registers = LoginRegister.all
     respond_to do |format|
       format.html # index.html.erb
+      
       format.json { render json: @login_registers }
     end
   end

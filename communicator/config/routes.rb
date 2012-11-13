@@ -1,10 +1,18 @@
 Communicator::Application.routes.draw do
   
+  resources :dependences
+
+  resources :messages
+
+  resources :eventos
+
   resources :login_registers
   resources :users
 
   get '/login' => 'security#verifyLogin'
   post '/login' => 'security#login'
+  
+  get '/list_dependences' => 'dependences#list'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

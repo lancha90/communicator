@@ -7,6 +7,7 @@
 <script src="js/source.js"></script>
 <script src="jquery.mobile/jquery-1.7.2.min"></script>
 <script src="jquery.mobile/jquery.mobile-1.1.1.min.js"></script>
+<script src="js/general_message.js"></script>
 
 <script type="text/javascript" charset="utf-8" src="./cordova-1.9.0.js"></script>
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.min.css" />
@@ -20,13 +21,12 @@
 			<h5>INBOX</h5>
 		</div>
 		<div data-role="content">
-
 			<div>
-			
-			INBOX
-				
+				<ul id="message_list" data-role="listview" data-divider-theme="b"
+					data-inset="true">
+					<!-- ESPACIO PARA ADICIONAR LOS ULTIMOS 10 MENSAJES QUE HA RECIBIDO EL USUARIO -->
+				</ul>
 			</div>
-
 		</div>
 		<div data-theme="a" data-role="footer" data-position="fixed">
 			<h3>Footer</h3>
@@ -41,16 +41,54 @@
 			<h5>Redactar Mensaje</h5>
 		</div>
 		<div data-role="content">
-		
-		REDACTAR MENSAJE
-		
+
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="subject"> Asunto: </label> <input name="subject"
+								id="subject" placeholder="" value="" type="text">
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="to"> Destinatario: </label> <select id="to" name="to">
+							<option value="3">Ing. Sistemas y Computación</option>
+							<option value="4">Ing. Electronica</option>
+							<option value="5">Tec. Topografía</option>
+							<option value="6">Tec. Obras Civiles</option>
+							<option value="2">Ing. Civil</option>
+							<option value="1">Decanatura</option>
+							<option value="av">Audivisuales</option>
+							<option value="et">Extensión</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="message"> Mensaje </label>
+							<textarea name="message" id="message" placeholder=""></textarea>
+						</fieldset>
+					</div>
+					<a id="sendMessage" data-role="button" data-inline="true"
+						data-transition="none" data-icon="check"
+						data-iconpos="right"> Enviar </a>
+
+				</div>
+				<div data-theme="a" data-role="footer" data-position="fixed">
+					<h3>Footer</h3>
+				</div>
+	</section>
+
+
+	<!-- VISUALIZACIÓN DEL MENSAJE -->
+	<section id="showInbox" data-role="page">
+		<div data-theme="a" data-role="header" data-position="fixed">
+			<h5 id="inboxTitle"></h5>
+		</div>
+		<div data-role="content">
+			<div id="messageContent">VISUALIZAR MENSAJE</div>
 		</div>
 		<div data-theme="a" data-role="footer" data-position="fixed">
 			<h3>Footer</h3>
 		</div>
 	</section>
-
-	
 
 </body>
 </html>

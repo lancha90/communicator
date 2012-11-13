@@ -18,19 +18,20 @@ function login() {
 					type : "POST",
 					dataType : 'json',
 					data : {
-						user : $('#user').val(),
+						username : $('#user').val(),
 						passwd : $('#passwd').val()
 					},
 					success : function(data) {
-
+						console.log(data);
 						if (data.code == LOGIN_OK) {
-							reportLog('Sesi�n iniciada!', '[LOGIN]');
+							reportLog('Sesión iniciada!', '[LOGIN]');
+							saveDataUser(data.user);
 							top.location.href = "./index.html";
 						} else if (data.code == LOGIN_FALSE) {
 							reportLog(
-									'Nombre de usuario o contrase�a no son correctos!',
+									'Nombre de usuario o contraseña no son correctos!',
 									'[Login]');
-							showError('Nombre de usuario o contrase�a no son correctos!');
+							showError('Nombre de usuario o contraseña no son correctos!');
 						} else {
 							reportLog('Error Interno del Servidor!', '[LOGIN]');
 							showError('Error Desconocido!');
@@ -42,7 +43,7 @@ function login() {
 						404 : function() {
 							$.mobile.hidePageLoadingMsg();
 							reportLog('URL no encontrada!', '[LOGIN]');
-							showError("URL no encontrada!");
+							showError("URL no encontrada "+URL_LOGIN);
 						},
 						0 : function() {
 							$.mobile.hidePageLoadingMsg();
@@ -51,20 +52,26 @@ function login() {
 							showError("Please check your internet connection!");
 						}
 					}
-
 				});
 	}else{
 		showError("Error en el contenido de los campos!");
 	}
 }
 
+
+/**
+ * funcion encargada de almacenar la informacion del usuario en el dispositivo
+ * @param data
+ */
+function saveDataUser(data){
+	window.information.setUserId(data[0].id);
+}
+
 /**
  * Funcion encargada de realizar la peticion de registro del usuario
  */
 function register() {
-
 	if (validateRegister()) {
-
 		$.ajax({
 			beforeSend : function() {
 				$.mobile.showPageLoadingMsg("a", "Loading Information ...");
@@ -88,7 +95,6 @@ function register() {
 				manager: $("#radio3").is(':checked')*/
 			},
 			success : function(data) {
-
 				if (data.code == REGISTER_OK) {
 					reportLog('Registro Satisfactorio', '[REGISTER]');
 					cleanLogin();
@@ -102,7 +108,6 @@ function register() {
 				} else if (data.code == REGISTER_ERROR_CODE) {
 					reportLog('El codigo introducido ya se encuentra registrado', '[REGISTER]');
 				}
-
 				$.mobile.hidePageLoadingMsg();
 			},
 			statusCode : {
@@ -118,15 +123,10 @@ function register() {
 					showError("Please check your internet connection!");
 				}
 			}
-
 		});
-		
 	}else{
-		
 		showError('Error en el contenido de los campos!');
-		
 	}
-
 }
 
 /**
@@ -212,7 +212,7 @@ function validateLogin() {
 
 	if ( $('#passwd').val().length < 6) {
 		state = false;
-		reportLog('La contrase�a no es mayor a 6 caracteres!', '[LOGIN]');
+		reportLog('La contraseña no es mayor a 6 caracteres!', '[LOGIN]');
 		$("label[for='passwd']").css({ color: "#FF0000" });
 	}
 

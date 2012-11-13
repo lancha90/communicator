@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  
-
-  
   # GET /users
   # GET /users.json
   def index
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-logger.info { 'entro en new' }
+    logger.info { 'entro en new' }
     @user = User.new
 
     respond_to do |format|
@@ -47,19 +44,17 @@ logger.info { 'entro en new' }
 
     @user = User.new(params[:user])
 
-
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { 
-          
+        format.json {
+
           logger.info { '-------------> SAVE' }
           render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
-        format.json { 
-          
+        format.json {
+
           logger.info { '-------------> ELSE' }
           render json: @user.errors, status: :unprocessable_entity }
       end

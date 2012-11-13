@@ -1,0 +1,29 @@
+<h1>Listing dependences</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Mision</th>
+    <th>Vision</th>
+    <th>Information</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dependences.each do |dependence| %>
+  <tr>
+    <td><%= dependence.name %></td>
+    <td><%= dependence.mision %></td>
+    <td><%= dependence.vision %></td>
+    <td><%= dependence.information %></td>
+    <td><%= link_to 'Show', dependence %></td>
+    <td><%= link_to 'Edit', edit_dependence_path(dependence) %></td>
+    <td><%= link_to 'Destroy', dependence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dependence', new_dependence_path %>
