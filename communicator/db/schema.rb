@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113042821) do
+ActiveRecord::Schema.define(:version => 20121119184621) do
+
+  create_table "calls", :force => true do |t|
+    t.string   "title"
+    t.date     "opening"
+    t.date     "close"
+    t.text     "profile"
+    t.text     "work"
+    t.integer  "hours_week"
+    t.integer  "hours_total"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "dependences", :force => true do |t|
     t.string   "name"
@@ -44,6 +56,27 @@ ActiveRecord::Schema.define(:version => 20121113042821) do
     t.integer  "dependence_id"
   end
 
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "student"
+    t.boolean  "teacher"
+    t.boolean  "admin"
+    t.date     "validity"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "dependence_id"
+  end
+
+  create_table "private_messages", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "password"
@@ -51,10 +84,10 @@ ActiveRecord::Schema.define(:version => 20121113042821) do
     t.string   "secondname"
     t.string   "code"
     t.string   "email"
-    t.string   "dependence"
     t.string   "rol"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "dependence_id"
   end
 
 end

@@ -7,7 +7,7 @@ var URL_LOGIN = URL_DOMAIN+'login.json';
 /**
  * url del servicio para realizar el registro de un usuario.
  */
-var URL_REGISTER = URL_DOMAIN+'/users/new';
+var URL_REGISTER = URL_DOMAIN+'users.json';
 
 /**
  * url del servicio para realizar la importación de los inbox.
@@ -22,12 +22,18 @@ var URL_MESSAGE_SHOW = URL_DOMAIN+'/showMessage.php';
 /**
  * url del servicio para enviar un mensaje.
  */
-var URL_MESSAGE_SEND = URL_DOMAIN+'/messages.json';
+var URL_MESSAGE_SEND = URL_DOMAIN+'messages.json';
 
 /**
  * url del servicio que lista los usuarios
  */
-var URL_DEPENDENCES_LIST = URL_DOMAIN+'/list_dependences.json';
+var URL_DEPENDENCES_LIST = URL_DOMAIN+'list_dependences.json';
+
+/**
+ * url del servicio que retorna la informacion de las categorias
+ */
+var URL_DEPENDENCES_INFO = URL_DOMAIN+'dependences/';
+
 
 /**
  * Codigo de autenticacion satisfactoria.
@@ -37,8 +43,6 @@ var LOGIN_OK = '001';
  * Codigo de error de autenticación.
  */
 var LOGIN_FALSE = '002';
-
-
 /**
  * Codigo de registro satisfactorio.
  */
@@ -89,4 +93,13 @@ var MESSAGE_PERMISSION_ID = '204';
  */
 function reportLog(msg,tag) {
 	console.log(tag+' => '+msg);
+}
+
+/**
+ * Funcion encargada de mostrar el mensaje de alerta en la pantalla del usuario
+ * 
+ * @param msg
+ */
+function showError(msg) {
+	alert(msg);
 }

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  opening: 2012-11-18
+  close: 2012-11-18
+  profile: MyText
+  work: MyText
+  hours_week: 
+  hours_total: 
+
+two:
+  title: MyString
+  opening: 2012-11-18
+  close: 2012-11-18
+  profile: MyText
+  work: MyText
+  hours_week: 
+  hours_total: 

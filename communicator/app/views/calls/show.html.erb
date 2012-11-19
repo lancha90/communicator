@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @call.title %>
+</p>
+
+<p>
+  <b>Opening:</b>
+  <%= @call.opening %>
+</p>
+
+<p>
+  <b>Close:</b>
+  <%= @call.close %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @call.profile %>
+</p>
+
+<p>
+  <b>Work:</b>
+  <%= @call.work %>
+</p>
+
+<p>
+  <b>Hours week:</b>
+  <%= @call.hours_week %>
+</p>
+
+<p>
+  <b>Hours total:</b>
+  <%= @call.hours_total %>
+</p>
+
+
+<%= link_to 'Edit', edit_call_path(@call) %> |
+<%= link_to 'Back', calls_path %>

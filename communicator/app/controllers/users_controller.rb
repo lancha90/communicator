@@ -43,20 +43,21 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(params[:user])
+    @dependence = Dependence.find(params[:dependence])
+    @user.dependence = @dependence
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json {
-
-          logger.info { '-------------> SAVE' }
-          render json: @user, status: :created, location: @user }
+          logger.info { "[REGISTER - OK] - El usuario se acaba de registrar!" }
+          render json: {code: '101'}
+        }
       else
         format.html { render action: "new" }
         format.json {
-
-          logger.info { '-------------> ELSE' }
-          render json: @user.errors, status: :unprocessable_entity }
+          logger.info { "[REGISTER - ERROR] - El usuario no se pudo registrar!" }
+          render json: {code: '102'} }
       end
     end
   end
