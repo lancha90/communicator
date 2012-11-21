@@ -18,7 +18,7 @@ class PrivateMessagesControllerTest < ActionController::TestCase
 
   test "should create private_message" do
     assert_difference('PrivateMessage.count') do
-      post :create, private_message: { content: @private_message.content, from_id: @private_message.from_id, subject: @private_message.subject, to_id: @private_message.to_id }
+      post :create, private_message: { content: @private_message.content, subject: @private_message.subject, to_id: @private_message.to_id }
     end
 
     assert_redirected_to private_message_path(assigns(:private_message))
@@ -35,7 +35,7 @@ class PrivateMessagesControllerTest < ActionController::TestCase
   end
 
   test "should update private_message" do
-    put :update, id: @private_message, private_message: { content: @private_message.content, from_id: @private_message.from_id, subject: @private_message.subject, to_id: @private_message.to_id }
+    put :update, id: @private_message, private_message: { content: @private_message.content, subject: @private_message.subject, to_id: @private_message.to_id }
     assert_redirected_to private_message_path(assigns(:private_message))
   end
 

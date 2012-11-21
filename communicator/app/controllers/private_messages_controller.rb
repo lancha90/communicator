@@ -1,4 +1,14 @@
 class PrivateMessagesController < ApplicationController
+
+  #GET /showMessageUser.json
+  def getMessageUser
+
+    @user = User.find(params[:user])
+    @private_message = PrivateMessage.find(:all,:conditions => {:user_id =>@user })
+
+    render json: {code: '200',message: @private_message} 
+  end
+
   # GET /private_messages
   # GET /private_messages.json
   def index
@@ -41,16 +51,20 @@ class PrivateMessagesController < ApplicationController
   # POST /private_messages.json
   def create
     @private_message = PrivateMessage.new(params[:private_message])
+    @user = User.find(:all,:conditions => {:code =>params[:user] },:limit => 1)
 
-    respond_to do |format|
+    if @user.length > 0
+      @private_message.user = @user[0]
+
       if @private_message.save
-        format.html { redirect_to @private_message, notice: 'Private message was successfully created.' }
-        format.json { render json: @private_message, status: :created, location: @private_message }
+        render json: @private_message, status: :created, location: @private_message
       else
-        format.html { render action: "new" }
-        format.json { render json: @private_message.errors, status: :unprocessable_entity }
+        render json: @private_message.errors, status: :unprocessable_entity
       end
+    else
+      render json: {code:'002'}
     end
+
   end
 
   # PUT /private_messages/1

@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>From</th>
     <th>To</th>
     <th>Subject</th>
     <th>Content</th>
@@ -13,7 +12,6 @@
 
 <% @private_messages.each do |private_message| %>
   <tr>
-    <td><%= private_message.from_id %></td>
     <td><%= private_message.to_id %></td>
     <td><%= private_message.subject %></td>
     <td><%= private_message.content %></td>

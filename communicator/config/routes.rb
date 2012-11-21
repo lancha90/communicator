@@ -17,6 +17,8 @@ Communicator::Application.routes.draw do
   
   get '/show_news' => 'news#showNews'
   
+  get '/getMessageUser' => 'private_messages#getMessageUser'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
