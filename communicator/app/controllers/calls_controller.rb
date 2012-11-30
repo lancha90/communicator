@@ -1,6 +1,7 @@
 class CallsController < ApplicationController
   # GET /calls
   # GET /calls.json
+  # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
     @calls = Call.all
 
@@ -12,6 +13,7 @@ class CallsController < ApplicationController
 
   # GET /calls/1
   # GET /calls/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
     @call = Call.find(params[:id])
 
@@ -23,6 +25,7 @@ class CallsController < ApplicationController
 
   # GET /calls/new
   # GET /calls/new.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario el formulario de adición de un nuevo registro
   def new
     @call = Call.new
 
@@ -33,12 +36,14 @@ class CallsController < ApplicationController
   end
 
   # GET /calls/1/edit
+  # Función encargado de gestionar y renderizar en la interfaz de usuario para editar un registro
   def edit
     @call = Call.find(params[:id])
   end
 
   # POST /calls
   # POST /calls.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
     @call = Call.new(params[:call])
 
@@ -55,6 +60,7 @@ class CallsController < ApplicationController
 
   # PUT /calls/1
   # PUT /calls/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la actualización de un registro
   def update
     @call = Call.find(params[:id])
 
@@ -71,6 +77,7 @@ class CallsController < ApplicationController
 
   # DELETE /calls/1
   # DELETE /calls/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la eliminación de un registro
   def destroy
     @call = Call.find(params[:id])
     @call.destroy

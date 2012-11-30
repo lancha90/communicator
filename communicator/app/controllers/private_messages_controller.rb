@@ -1,6 +1,7 @@
 class PrivateMessagesController < ApplicationController
 
   #GET /showMessageUser.json
+  #Funcion encargada de obtener los mensajes de un usuario segun su id
   def getMessageUser
 
     @user = User.find(params[:user])
@@ -11,6 +12,7 @@ class PrivateMessagesController < ApplicationController
 
   # GET /private_messages
   # GET /private_messages.json
+  # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
     @private_messages = PrivateMessage.all
 
@@ -22,6 +24,7 @@ class PrivateMessagesController < ApplicationController
 
   # GET /private_messages/1
   # GET /private_messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
     @private_message = PrivateMessage.find(params[:id])
 
@@ -33,6 +36,7 @@ class PrivateMessagesController < ApplicationController
 
   # GET /private_messages/new
   # GET /private_messages/new.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario el formulario de adición de un nuevo registro
   def new
     @private_message = PrivateMessage.new
 
@@ -43,12 +47,14 @@ class PrivateMessagesController < ApplicationController
   end
 
   # GET /private_messages/1/edit
+  # Función encargado de gestionar y renderizar en la interfaz de usuario para editar un registro
   def edit
     @private_message = PrivateMessage.find(params[:id])
   end
 
   # POST /private_messages
   # POST /private_messages.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
     @private_message = PrivateMessage.new(params[:private_message])
     @user = User.find(:all,:conditions => {:code =>params[:user] },:limit => 1)
@@ -69,6 +75,7 @@ class PrivateMessagesController < ApplicationController
 
   # PUT /private_messages/1
   # PUT /private_messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la actualización de un registro
   def update
     @private_message = PrivateMessage.find(params[:id])
 
@@ -85,6 +92,7 @@ class PrivateMessagesController < ApplicationController
 
   # DELETE /private_messages/1
   # DELETE /private_messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la eliminación de un registro
   def destroy
     @private_message = PrivateMessage.find(params[:id])
     @private_message.destroy

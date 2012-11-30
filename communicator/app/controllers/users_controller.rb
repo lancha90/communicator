@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
     @users = User.all
 
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
     @user = User.find(params[:id])
 
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   # GET /users/new.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario el formulario de adición de un nuevo registro
   def new
     logger.info { 'entro en new' }
     @user = User.new
@@ -34,12 +37,14 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
+  # Función encargado de gestionar y renderizar en la interfaz de usuario para editar un registro
   def edit
     @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
 
   headers['Access-Control-Allow-Origin'] = '*'
@@ -68,6 +73,7 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   # PUT /users/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la actualización de un registro
   def update
     @user = User.find(params[:id])
 
@@ -84,6 +90,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la eliminación de un registro
   def destroy
     @user = User.find(params[:id])
     @user.destroy

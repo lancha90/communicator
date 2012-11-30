@@ -1,6 +1,6 @@
 class SecurityController < ApplicationController
+  #Función encargada de ser la interaz para la conexión a la plataforma para validar el login
   def login
-
     @nombre = params[:username]
     @passwd = params[:passwd]
     redirect_to action: :verifyLogin, nombre: @nombre, passwd: @passwd

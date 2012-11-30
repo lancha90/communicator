@@ -15,12 +15,9 @@ function importMessage() {
 				beforeSend : function() {
 					$.mobile.showPageLoadingMsg("a", "Loading Information ...");
 				},
-				url : URL_MESSAGE,
-				type : "POST",
+				url : URL_MESSAGE+'user='+window.information.getUserId()+'.json',
+				type : "GET",
 				dataType : 'json',
-				data : {
-					user : window.information.getUserId()
-				},
 				success : function(data) {
 
 					console.log(data);
@@ -28,7 +25,7 @@ function importMessage() {
 					if (data.code == MESSAGE_OK) {
 						reportLog('Solicitud de mensaje satisfactoria!',
 								'[MESSAGE]');
-						loadMessage(data.news);
+						loadMessage(data.message);
 					} else if (data.code == MESSAGE_ERROR_ID) {
 						reportLog('Userid Not Found: ' + IDUSER + ' !',
 								'[MESSAGE]');

@@ -12,7 +12,7 @@ var URL_REGISTER = URL_DOMAIN+'users.json';
 /**
  * url del servicio para realizar la importación de los inbox.
  */
-var URL_MESSAGE = URL_DOMAIN+'mensaje.php';
+var URL_MESSAGE = URL_DOMAIN+'showMessageUser';
 
 /**
  * url del servicio para importar los detaller de un mensaje inbox.

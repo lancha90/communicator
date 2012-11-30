@@ -1,0 +1,25 @@
+<%= form_for(@faber_giraldo) do |f| %>
+  <% if @faber_giraldo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@faber_giraldo.errors.count, "error") %> prohibited this faber_giraldo from being saved:</h2>
+
+      <ul>
+      <% @faber_giraldo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :edad %><br />
+    <%= f.number_field :edad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
+  # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
     @messages = Message.all
 
@@ -13,6 +14,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1
   # GET /messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
     @message = Message.find(params[:id])
 
@@ -24,6 +26,8 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   # GET /messages/new.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario el formulario de adición de un nuevo registro
+  
   def new
     @message = Message.new
 
@@ -34,12 +38,14 @@ class MessagesController < ApplicationController
   end
 
   # GET /messages/1/edit
+  # Función encargado de gestionar y renderizar en la interfaz de usuario para editar un registro
   def edit
     @message = Message.find(params[:id])
   end
 
   # POST /messages
   # POST /messages.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
     @message = Message.new(params[:message])
 
@@ -72,6 +78,7 @@ class MessagesController < ApplicationController
 
   # PUT /messages/1
   # PUT /messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la actualización de un registro
   def update
     @message = Message.find(params[:id])
 
@@ -88,6 +95,7 @@ class MessagesController < ApplicationController
 
   # DELETE /messages/1
   # DELETE /messages/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la eliminación de un registro
   def destroy
     @message = Message.find(params[:id])
     @message.destroy

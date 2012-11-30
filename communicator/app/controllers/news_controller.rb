@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   # GET /showNews.json
+  # Función encargada de listar las noticias para un perfil especifico
   def showNews
 
     # @student = param[:student]
@@ -27,6 +28,7 @@ class NewsController < ApplicationController
 
   # GET /news
   # GET /news.json
+  # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
     @news = News.all
 
@@ -38,6 +40,7 @@ class NewsController < ApplicationController
 
   # GET /news/1
   # GET /news/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
     @news = News.find(params[:id])
 
@@ -49,6 +52,7 @@ class NewsController < ApplicationController
 
   # GET /news/new
   # GET /news/new.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario el formulario de adición de un nuevo registro
   def new
     @news = News.new
 
@@ -59,12 +63,14 @@ class NewsController < ApplicationController
   end
 
   # GET /news/1/edit
+  # Función encargado de gestionar y renderizar en la interfaz de usuario para editar un registro
   def edit
     @news = News.find(params[:id])
   end
 
   # POST /news
   # POST /news.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
     @news = News.new(params[:news])
     @dependence = Dependence.find(params[:dependence])
@@ -83,6 +89,7 @@ class NewsController < ApplicationController
 
   # PUT /news/1
   # PUT /news/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la actualización de un registro
   def update
     @news = News.find(params[:id])
 
@@ -99,6 +106,7 @@ class NewsController < ApplicationController
 
   # DELETE /news/1
   # DELETE /news/1.json
+  # Función encargado de gestionar y renderizar en la interfaz de usuario la eliminación de un registro
   def destroy
     @news = News.find(params[:id])
     @news.destroy
