@@ -11,16 +11,15 @@ $(document).ready(function() {
  */
 function importMessage() {
 
-	$.ajax({
+	$
+			.ajax({
 				beforeSend : function() {
 					$.mobile.showPageLoadingMsg("a", "Loading Information ...");
 				},
-				url : URL_MESSAGE+'user='+window.information.getUserId()+'.json',
+				url : URL_MESSAGE + '?user=' + window.information.getUserId(),
 				type : "GET",
 				dataType : 'json',
 				success : function(data) {
-
-					console.log(data);
 
 					if (data.code == MESSAGE_OK) {
 						reportLog('Solicitud de mensaje satisfactoria!',
@@ -60,18 +59,23 @@ function importMessage() {
 function loadMessage(data) {
 
 	var aux = '<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-corner-top">Bandeja de Entrada</li>';
-
+	$('#message_list').html(aux);
+	
 	for (i in data) {
 
-		aux = aux
-				.concat('<li data-theme="c" id="'
+		aux = '<li data-theme="c" id="inbox'
 						+ data[i].id
 						+ '" data-corners="false" data-shadow="false" data-iconshadow="true" data-iconsize="18" data-wrapperels="div" data-icon="arrow-r" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-btn-up-c  item_message"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a class="ui-link-inherit">'
-						+ data[i].title + '</a></div></li>');
+						+ data[i].subject + '</a></div></li>';
+		$('#message_list').append(aux);
+		
+		$('#inbox'+data[i].id).click(function() {
+			showLoadMessage(data[i].content, data[i].subject);
+		});
+
 	}
 
-	$('#message_list').html(aux);
-	$('.item_message').click(showItemMessage);
+	
 }
 
 /**
@@ -80,73 +84,22 @@ function loadMessage(data) {
  * @param data,
  *            json con la respuesta del servidor.
  */
-function showLoadMessage(data) {
+function showLoadMessage(content, subject) {
+
 	top.location.href = "#showInbox";
-	$('#inboxTitle').html(data.title);
-	$('#messageContent').html(data.description);
-}
-
-/**
- * Función encargada de permitir la previsualización de un mensaje seleccionado.
- */
-function showItemMessage() {
-
-	console.log($(this).attr('id'));
-
-	$
-			.ajax({
-				beforeSend : function() {
-					$.mobile.showPageLoadingMsg("a", "Loading Information ...");
-				},
-				url : URL_MESSAGE_SHOW,
-				type : "POST",
-				dataType : 'json',
-				data : {
-					user : window.information.getUserId(),
-					message : $(this).attr('id')
-				},
-				success : function(data) {
-
-					if (data.code == MESSAGE_OK) {
-						reportLog('Solicitud de mensaje satisfactoria!',
-								'[MESSAGE]');
-						showLoadMessage(data.news);
-					} else if (data.code == MESSAGE_ERROR_ID) {
-						reportLog('UserId Not Found: ' + window.information.getUserId() + ' !',
-								'[MESSAGE]');
-					} else if (data.code == MESSAGE_PERMISSION_ID) {
-						reportLog('UserId Not Authorize: ' + window.information.getUserId() + ' !',
-								'[MESSAGE]');
-					} else {
-						reportLog('Error Interno del Servidor!', '[MESSAGE]');
-					}
-
-					$.mobile.hidePageLoadingMsg();
-				},
-				statusCode : {
-					404 : function() {
-						$.mobile.hidePageLoadingMsg();
-						reportLog('URL Not Found: ' + URL_MESSAGE + '!',
-								'[MESSAGE]');
-					},
-					0 : function() {
-						$.mobile.hidePageLoadingMsg();
-						reportLog('Please check your internet connection!',
-								'[MESSAGE]');
-					}
-				}
-			});
-
+	$('#inboxTitle').html(subject);
+	$('#messageContent').html(content);
 }
 
 /**
  * Función encargada de enviar un mensaje
+ * 
  * @TODO -> enviar los parametros
  */
 function sendMessage() {
-	
-	if(validateData){
-		
+
+	if (validateData) {
+
 		$.ajax({
 			beforeSend : function() {
 				$.mobile.showPageLoadingMsg("a", "Loading Information ...");
@@ -155,10 +108,10 @@ function sendMessage() {
 			type : "POST",
 			dataType : 'json',
 			data : {
-				"message[subject]": $('#subject').val(),
-				"message[content]": $('#message').val(),
-				"dependences": $('#to').val(),
-				"user": window.information.getUserId()
+				"message[subject]" : $('#subject').val(),
+				"message[content]" : $('#message').val(),
+				"dependences" : $('#to').val(),
+				"user" : window.information.getUserId()
 			},
 			success : function(data) {
 				if (data.code == REGISTER_OK) {
@@ -168,11 +121,17 @@ function sendMessage() {
 				} else if (data.code == REGISTER_ERROR) {
 					reportLog('Error interno del servidor', '[REGISTER]');
 				} else if (data.code == REGISTER_ERROR_NAME) {
-					reportLog('El nombre de usuario ya se encuentra registrado', '[REGISTER]');
+					reportLog(
+							'El nombre de usuario ya se encuentra registrado',
+							'[REGISTER]');
 				} else if (data.code == REGISTER_ERROR_MAIL) {
-					reportLog('El email introducido ya se encuentra registrado', '[REGISTER]');
+					reportLog(
+							'El email introducido ya se encuentra registrado',
+							'[REGISTER]');
 				} else if (data.code == REGISTER_ERROR_CODE) {
-					reportLog('El codigo introducido ya se encuentra registrado', '[REGISTER]');
+					reportLog(
+							'El codigo introducido ya se encuentra registrado',
+							'[REGISTER]');
 				}
 				$.mobile.hidePageLoadingMsg();
 			},
@@ -190,8 +149,8 @@ function sendMessage() {
 				}
 			}
 		});
-		
-	}else{
+
+	} else {
 		reportLog('Form corrupte!', '[MESSAGE]');
 	}
 }
@@ -199,21 +158,26 @@ function sendMessage() {
 /**
  * Función encargada de validar los datos diligenciados en el mensaje
  */
-function validateData(){
+function validateData() {
 	var state = true;
 
-	if ( $('#subject').val().length < 3) {
+	if ($('#subject').val().length < 3) {
 		state = false;
-		reportLog('El asunto del mensaje no es mayor a 3 caracteres!', '[MESSAGE]');
-		$("label[for='subject']").css({ color: "#FF0000" });
+		reportLog('El asunto del mensaje no es mayor a 3 caracteres!',
+				'[MESSAGE]');
+		$("label[for='subject']").css({
+			color : "#FF0000"
+		});
 	}
-	
-	if ( $('#message').val().length < 3) {
+
+	if ($('#message').val().length < 3) {
 		state = false;
-		reportLog('El contenido del mensaje no es mayor a 10 caracteres!', '[MESSAGE]');
-		$("label[for='message']").css({ color: "#FF0000" });
+		reportLog('El contenido del mensaje no es mayor a 10 caracteres!',
+				'[MESSAGE]');
+		$("label[for='message']").css({
+			color : "#FF0000"
+		});
 	}
-	
-	
+
 	return state;
 }

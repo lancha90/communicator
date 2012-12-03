@@ -12,12 +12,21 @@ var URL_REGISTER = URL_DOMAIN+'users.json';
 /**
  * url del servicio para realizar la importación de los inbox.
  */
-var URL_MESSAGE = URL_DOMAIN+'showMessageUser';
+var URL_MESSAGE = URL_DOMAIN+'getMessageUser';
+/**
+ * url del servicio para realizar la importación de las noticias.
+ */
+var URL_NEWS = URL_DOMAIN+'show_news';
+/**
+ * url del servicio para realizar la importación de las convocatorias.
+ */
+var URL_CALLS = URL_DOMAIN+'show_calls';
+
 
 /**
  * url del servicio para importar los detaller de un mensaje inbox.
  */
-var URL_MESSAGE_SHOW = URL_DOMAIN+'/showMessage.php';
+var URL_MESSAGE_SHOW = URL_DOMAIN+'showMessage.php';
 
 /**
  * url del servicio para enviar un mensaje.
@@ -67,7 +76,7 @@ var REGISTER_ERROR_CODE = '105';
 /**
  * Codigo de aprobación para mensajes.
  */
-var MESSAGE_OK = '201';
+var MESSAGE_OK = '200';
 
 /**
  * Codigo de error para mensajes cuando el usuario no es correcto.
@@ -84,7 +93,8 @@ var MESSAGE_EEROR_SERVER = '203';
  */
 var MESSAGE_PERMISSION_ID = '204';
 
-
+var DEPENDENCES_ID=0;
+var CALLS_ID=0;
 
 /**
  * Funcion encargada de reportar los log's del sistema.
@@ -102,4 +112,18 @@ function reportLog(msg,tag) {
  */
 function showError(msg) {
 	alert(msg);
+}
+
+/**
+* Funcion encargada de capturar el parametro GET 
+*/
+function getParameters( name ){
+	var regexS = "[\\?&]"+name+"=([^&#]*)";
+	var regex = new RegExp ( regexS );
+	var tmpURL = window.location.href;
+	var results = regex.exec( tmpURL );
+	if( results == null )
+		return"";
+	else
+		return results[1];
 }

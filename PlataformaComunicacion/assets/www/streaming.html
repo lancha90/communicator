@@ -7,29 +7,39 @@
 <script src="js/source.js"></script>
 <script src="jquery.mobile/jquery-1.7.2.min"></script>
 <script src="jquery.mobile/jquery.mobile-1.1.1.min.js"></script>
+<script src="js/script.js"></script>
 
 <script type="text/javascript" charset="utf-8" src="./cordova-1.9.0.js"></script>
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.min.css" />
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.css" />
+<link rel="stylesheet" href="style/style.css" />
 
 </head>
 <body>
 	<!-- HISTORIAL -->
 	<section id="history" data-role="page">
 		<div data-theme="a" data-role="header" data-position="fixed">
-			<h5>HISTORIAL</h5>
+			<h5>Emisora</h5>
 		</div>
 		<div data-role="content">
 
-			<div>
-			
-			HISTORIAL
-				
-			</div>
+			<h2>Emisora</h2>
+		<button href="https://dl.dropbox.com/u/52557040/_COLOMBIA%20HUMANITARIA%20invierno.mp3">Descargar</button>
+		<div id="audioPosition">
+			<input type="range" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true" disabled />
+		</div>
+		<div data-role="controlgroup" data-type="horizontal">
+			<input type="button" id="play" data-role="button" data-icon="audio-play" data-iconpos="notext" value="Play" />
+			<input type="button" id="pause" data-role="button" data-icon="audio-pause" data-iconpos="notext" value="Pause" disabled />
+			<input type="button" id="stop" data-role="button" data-icon="audio-stop" data-iconpos="notext" value="Stop" />
+			<input type="button" id="rewind" data-role="button" data-icon="audio-rewind" data-iconpos="notext" value="Rewind" />
+			<input type="button" id="record" data-role="button" data-icon="audio-record" data-iconpos="notext" value="Record">
+		</div>
+		<div id="recording"></div>
 
 		</div>
 		<div data-theme="a" data-role="footer" data-position="fixed">
-			<h3>Footer</h3>
+			<h3>Diego Mauricio Herrera Alzate - diegomao627@gmail.com</h3>
 		</div>
 	</section>
 
@@ -40,17 +50,13 @@
 		<div data-theme="a" data-role="header" data-position="fixed">
 			<h5>REPRODUCTOR</h5>
 		</div>
-		<div data-role="content">
-		
-		REPRODUCTOR de multimedia
-		
-		</div>
+		<div data-role="content">REPRODUCTOR de multimedia</div>
 		<div data-theme="a" data-role="footer" data-position="fixed">
-			<h3>Footer</h3>
+			<h3>Diego Mauricio Herrera Alzate - diegomao627@gmail.com</h3>
 		</div>
 	</section>
 
-	
+
 
 </body>
 </html>
