@@ -25,6 +25,11 @@ class DependencesController < ApplicationController
   # GET /dependences/1.json
   # Función encargado de gestionar y renderizar en la interfaz de usuario un registro segun su id
   def show
+
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'GET'
+    headers['Access-Control-Allow-Headers'] = 'Authorization'
+
     @dependence = Dependence.find(params[:id])
 
     respond_to do |format|

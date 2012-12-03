@@ -1,4 +1,13 @@
 class CallsController < ApplicationController
+  
+   #GET /showMessageUser.json
+  #Funcion encargada de obtener los mensajes de un usuario segun su id
+  def getCall
+    
+    @calls = Call.where("close >= :date AND sort = :type", {:date => params[:date].to_date, :type => params[:type] })
+    render json: {code: '200',calls: @calls} 
+  end
+  
   # GET /calls
   # GET /calls.json
   # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos

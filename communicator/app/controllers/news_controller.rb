@@ -13,17 +13,17 @@ class NewsController < ApplicationController
     @admin = params[:a]
 
     if(@student == '1')
-      @news = News.where("validity <= :date AND student = 1", {:date => params[:date].to_date})
+      @news = News.where("validity >= :date AND student = 1", {:date => params[:date].to_date})
     end
     if(@teacher == '1')
-      @news = News.where("validity <= :date AND teacher = 1", {:date => params[:date].to_date})
+      @news = News.where("validity >= :date AND teacher = 1", {:date => params[:date].to_date})
     end
-
     if(@admin == '1')
-      @news = News.where("validity <= :date AND admin = 1", {:date => params[:date].to_date})
+      @news = News.where("validity >= :date AND admin = 1", {:date => params[:date].to_date})
     end
 
-    render json: @news
+
+    render json: {code:'200',news: @news}
   end
 
   # GET /news
