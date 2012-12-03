@@ -1,35 +1,44 @@
-<h1>Listing calls</h1>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#show_calls').dataTable();
+	}); 
+</script>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Opening</th>
-    <th>Close</th>
-    <th>Profile</th>
-    <th>Work</th>
-    <th>Hours week</th>
-    <th>Hours total</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div>
+	<h1>Listado de Convocatorias</h1>
 
-<% @calls.each do |call| %>
-  <tr>
-    <td><%= call.title %></td>
-    <td><%= call.opening %></td>
-    <td><%= call.close %></td>
-    <td><%= call.profile %></td>
-    <td><%= call.work %></td>
-    <td><%= call.hours_week %></td>
-    <td><%= call.hours_total %></td>
-    <td><%= link_to 'Show', call %></td>
-    <td><%= link_to 'Edit', edit_call_path(call) %></td>
-    <td><%= link_to 'Destroy', call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<table id="show_calls">
+		<tr>
+			<th>Titulo</th>
+			<th>Apertura</th>
+			<th>Cierre</th>
+			<th>Perfil</th>
+			<th>Labores</th>
+			<th>Horas Semanales</th>
+			<th>Horas Totales</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
 
-<br />
+		<% @calls.each do |call| %>
+		<tr>
+			<td><%= call.title %></td>
+			<td><%= call.opening %></td>
+			<td><%= call.close %></td>
+			<td><%= call.profile %></td>
+			<td><%= call.work %></td>
+			<td><%= call.hours_week %></td>
+			<td><%= call.hours_total %></td>
+			<td>
+			<%= link_to image_tag("icon_view.png", :border=>0), call %>
+			<%= link_to image_tag("icon_edit.png", :border=>0), edit_call_path(call)  %>
+			<%= link_to image_tag("icon_delete.png", :border=>0), call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
 
-<%= link_to 'New Call', new_call_path %>
+	<br />
+
+	<%= link_to 'New Call', new_call_path %>
+</div>

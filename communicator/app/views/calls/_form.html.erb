@@ -12,33 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :Titulo %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :opening %><br />
+    <%= f.label :Apertura %><br />
     <%= f.date_select :opening %>
   </div>
   <div class="field">
-    <%= f.label :close %><br />
+    <%= f.label :Cierre %><br />
     <%= f.date_select :close %>
   </div>
   <div class="field">
-    <%= f.label :profile %><br />
+    <%= f.label :Auxiliar %><br />
+    <%= select( :call, :sort, { "Laboral" => "1", "Pasantia" => "2","Docencia" => "3","Investigación" => "4","Administrativo" => "5"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :Perfil %><br />
     <%= f.text_area :profile %>
   </div>
   <div class="field">
-    <%= f.label :work %><br />
+    <%= f.label :Labores %><br />
     <%= f.text_area :work %>
   </div>
   <div class="field">
-    <%= f.label :hours_week %><br />
+    <%= f.label :HorasSemannales %><br />
     <%= f.text_field :hours_week %>
   </div>
   <div class="field">
-    <%= f.label :hours_total %><br />
+    <%= f.label :HorasTotales %><br />
     <%= f.text_field :hours_total %>
   </div>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,11 +1,17 @@
-<h1>Listing dependences</h1>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#show_dependences').dataTable();
+	}); 
+</script>
 
-<table>
+<h1>Lista de dependencias</h1>
+
+<table id="show_dependences">
   <tr>
-    <th>Name</th>
-    <th>Mision</th>
-    <th>Vision</th>
-    <th>Information</th>
+    <th>Nombre</th>
+    <th>Misión</th>
+    <th>Visión</th>
+    <th>Información</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,9 +23,10 @@
     <td><%= dependence.mision %></td>
     <td><%= dependence.vision %></td>
     <td><%= dependence.information %></td>
-    <td><%= link_to 'Show', dependence %></td>
-    <td><%= link_to 'Edit', edit_dependence_path(dependence) %></td>
-    <td><%= link_to 'Destroy', dependence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+    	<%= link_to image_tag("icon_view.png", :border=>0), dependence %>
+    	<%= link_to image_tag("icon_edit.png", :border=>0), edit_dependence_path(dependence) %>
+    	<%= link_to image_tag("icon_delete.png", :border=>0), dependence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
