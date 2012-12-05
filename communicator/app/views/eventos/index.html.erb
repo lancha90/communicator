@@ -1,9 +1,15 @@
-<h1>Listing eventos</h1>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#show_events').dataTable();
+	}); 
+</script>
 
-<table>
+<h1>Listado de Eventos</h1>
+
+<table class="table" id="show_events">
   <tr>
     <th>Nombre</th>
-    <th>Descripcion</th>
+    <th>Descripción</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,9 +19,9 @@
   <tr>
     <td><%= evento.nombre %></td>
     <td><%= evento.descripcion %></td>
-    <td><%= link_to 'Show', evento %></td>
-    <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-    <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to image_tag("icon_view.png", :border=>0), evento %>
+    	<%= link_to image_tag("icon_edit.png", :border=>0), edit_evento_path(evento) %>
+    	<%= link_to image_tag("icon_delete.png", :border=>0), evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

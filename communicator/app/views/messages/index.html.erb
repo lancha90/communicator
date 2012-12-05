@@ -1,28 +1,32 @@
-<h1>Listing messages</h1>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#show_inbox').dataTable();
+	}); 
+</script>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div>
 
-<% @messages.each do |message| %>
-  <tr>
-    <td><%= message.subject %></td>
-    <td><%= message.content %></td>
-    <td><%= message.dependence %></td>
-    <td><%= message.user %></td>
-    <td><%= link_to 'Show', message %></td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<h1>Bandeja de Entrada</h1>
 
-<br />
+	<table class="table" id="show_inbox">
+		<thead>
+			<tr>
+				<th>Asunto</th>
+				<th>Dependencia</th>
+				<th>Usuario</th>
+				<th></th>
+			</tr>
+		</thead>
 
-<%= link_to 'New Message', new_message_path %>
+		<% @messages.each do |message| %>
+		<tr>
+			<td><%= message.subject %></td>
+			<td><%= message.dependence.name %></td>
+			<td><%= message.user.firtname %> <%= message.user.secondname %></td>
+			<td><%= link_to image_tag("icon_view.png", :border=>0), message %>
+			<%= link_to image_tag("icon_delete.png", :border=>0), message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
+
+</div>

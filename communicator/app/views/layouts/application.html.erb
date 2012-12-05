@@ -11,9 +11,11 @@
 	</head>
 	<body>
 		<style>
-			textarea{ height: 100px;}
+			textarea {
+				height: 100px;
+			}
 		</style>
-		
+
 		<div class="navbar navbar-fixed-top" style=" position: relative; ">
 			<div class="navbar-inner">
 				<div class="container-fluid">
@@ -27,7 +29,7 @@
 					<div class="nav-collapse in collapse">
 						<ul class="nav">
 							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown">Convocatoria<b class="caret"></b> </a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Convocatoria<b class="caret"></b> </a>
 								<ul class="dropdown-menu">
 									<li>
 										<a href="http://localhost:3000/calls/new" class="" id="link-new-call">Nueva Convocatoría</a>
@@ -52,13 +54,13 @@
 								</ul>
 							</li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario</a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li>
 										<a href="http://localhost:3000/users/new" class="" id="link-new-user">Nuevo Usuario</a>
 									</li>
 									<li>
-										<a href="http://localhost:3000/users/new" id="link-show-user">Listado de Usuarios</a>
+										<a href="http://localhost:3000/users" id="link-show-user">Listado de Usuarios</a>
 									</li>
 								</ul>
 							</li>
@@ -66,10 +68,13 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mensajes<b class="caret"></b> </a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="#" class="" id="link-show-inbox">Bandeja de Entrada</a>
+										<a href="http://localhost:3000/messages" class="" id="link-show-inbox">Bandeja de Entrada</a>
 									</li>
 									<li>
-										<a href="#" class="" id="link-send-message">Redactar Mensaje</a>
+										<a href="http://localhost:3000/private_messages" class="" id="link-send-message">Bandeja de Salida</a>
+									</li>
+									<li>
+										<a href="http://localhost:3000/private_messages/new" class="" id="link-send-message">Redactar Mensaje</a>
 									</li>
 								</ul>
 							</li>
@@ -80,7 +85,16 @@
 			</div>
 		</div>
 
-		<%= yield %>
+		<div align="center" class="container" style="width: 900px">
 
+			<div class="row-fluid">
+				<div class="span12 contenedor">
+					<%= yield %>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
 	</body>
 </html>

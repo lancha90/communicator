@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121203025237) do
     t.integer  "hours_total"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "type"
     t.integer  "sort"
   end
 
@@ -42,13 +43,6 @@ ActiveRecord::Schema.define(:version => 20121203025237) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "faber_giraldos", :force => true do |t|
-    t.string   "nombre"
-    t.integer  "edad"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "login_registers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -56,11 +50,12 @@ ActiveRecord::Schema.define(:version => 20121203025237) do
   end
 
   create_table "messages", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
-    t.string   "subject"
-    t.text     "content"
+    t.string   "redactor"
     t.integer  "dependence_id"
   end
 

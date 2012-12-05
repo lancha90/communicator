@@ -8840,7 +8840,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Siguiente",
 			
 			
 				/**
@@ -8861,7 +8861,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Anterior"
 			},
 		
 			/**
@@ -8903,7 +8903,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "_START_ - _END_  de  _TOTAL_",
 		
 		
 			/**
@@ -9023,7 +9023,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Ver _MENU_ Mensajes",
 		
 		
 			/**
@@ -9097,7 +9097,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Buscar:",
 		
 		
 			/**
@@ -9140,7 +9140,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "No se encontraron resultados"
 		},
 	
 	
@@ -10986,10 +10986,10 @@
 		"sPageButton": "paginate_button",
 		"sPageButtonActive": "paginate_active",
 		"sPageButtonStaticDisabled": "paginate_button paginate_button_disabled",
-		"sPageFirst": "first",
-		"sPagePrevious": "previous",
-		"sPageNext": "next",
-		"sPageLast": "last",
+		"sPageFirst": "Primera",
+		"sPagePrevious": "Anterior",
+		"sPageNext": "Siguiente",
+		"sPageLast": "Ultima",
 		
 		/* Striping classes */
 		"sStripeOdd": "odd",
@@ -11111,8 +11111,8 @@
 				};
 	
 				var sAppend = (!oSettings.bJUI) ?
-					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sPrevious+'</a>'+
-					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sNext+'</a>'
+					'<a style="padding-right:10px; cursor:pointer;" class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sPrevious+'</a>'+
+					'<a style="padding-left:10px; cursor:pointer;" class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sNext+'</a>'
 					:
 					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUIPrev+'"></span></a>'+
 					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUINext+'"></span></a>';

@@ -4,5 +4,14 @@ body {
 
 .contenedor{
 	
-	background-color: #D8D8D8;
+	background-color: #333333;
 }
+#show_inbox_filter, #show_calls_filter, #show_dependences_filter, #show_private_filter{
+	clear: both;
+	float: left;	
+}
+
+#show_inbox_length, #show_calls_length, #show_dependences_length, #show_private_length {
+	float: left;
+}
+

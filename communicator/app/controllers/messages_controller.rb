@@ -3,7 +3,10 @@ class MessagesController < ApplicationController
   # GET /messages.json
   # Función encargado de renderizar en la interfaz de usuario la totalidad de los registros obtenidos
   def index
-    @messages = Message.all
+    # @messages = Message.all
+  
+  @messages = Message.find(:all, :order => "id DESC")
+  
 
     respond_to do |format|
       format.html # index.html.erb

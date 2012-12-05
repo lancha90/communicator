@@ -4,33 +4,30 @@
 	}); 
 </script>
 
-<h1>Lista de dependencias</h1>
+<div>
 
-<table id="show_dependences">
-  <tr>
-    <th>Nombre</th>
-    <th>Misión</th>
-    <th>Visión</th>
-    <th>Información</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<h1>Lista de dependencias</h1>
 
-<% @dependences.each do |dependence| %>
-  <tr>
-    <td><%= dependence.name %></td>
-    <td><%= dependence.mision %></td>
-    <td><%= dependence.vision %></td>
-    <td><%= dependence.information %></td>
-    <td>
-    	<%= link_to image_tag("icon_view.png", :border=>0), dependence %>
-    	<%= link_to image_tag("icon_edit.png", :border=>0), edit_dependence_path(dependence) %>
-    	<%= link_to image_tag("icon_delete.png", :border=>0), dependence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<table id="show_dependences">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th style="width:765px">Información</th>
+				<th></th>
+			</tr>
+		</thead>
+		<% @dependences.each do |dependence| %>
+		<tr>
+			<td><%= dependence.name %></td>
+			<td><%= dependence.information %></td>
+			<td style="width:15px"> <%= link_to image_tag("icon_view.png", :border=>0), dependence %>
+			<%= link_to image_tag("icon_edit.png", :border=>0), edit_dependence_path(dependence) %>
+			<%= link_to image_tag("icon_delete.png", :border=>0), dependence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
 
-<br />
+	<br />
 
-<%= link_to 'New Dependence', new_dependence_path %>
+	<%= link_to 'New Dependence', new_dependence_path %>
+</div>

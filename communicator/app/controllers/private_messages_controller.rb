@@ -1,5 +1,4 @@
 class PrivateMessagesController < ApplicationController
-
   #GET /showMessageUser.json
   #Funcion encargada de obtener los mensajes de un usuario segun su id
   def getMessageUser
@@ -7,7 +6,7 @@ class PrivateMessagesController < ApplicationController
     @user = User.find(params[:user])
     @private_message = PrivateMessage.find(:all,:conditions => {:user_id =>@user })
 
-    render json: {code: '200',message: @private_message} 
+    render json: {code: '200',message: @private_message}
   end
 
   # GET /private_messages
@@ -57,18 +56,21 @@ class PrivateMessagesController < ApplicationController
   # Función encargado de gestionar y renderizar en la interfaz de usuario la creación de un nuevo registro
   def create
     @private_message = PrivateMessage.new(params[:private_message])
-    @user = User.find(:all,:conditions => {:code =>params[:user] },:limit => 1)
+    @user = User.find(:all,:conditions => {:id =>params[:user] },:limit => 1)
 
     if @user.length > 0
       @private_message.user = @user[0]
-
-      if @private_message.save
-        render json: @private_message, status: :created, location: @private_message
-      else
-        render json: @private_message.errors, status: :unprocessable_entity
+      respond_to do |format|
+        if @private_message.save
+          format.html { redirect_to @private_message, notice: 'Message was successfully created.' }
+          format.json { render json: @private_message, status: :created, location: @private_message }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @private_message.errors, status: :unprocessable_entity}
+        end
       end
     else
-      render json: {code:'002'}
+      render json: {code:'002', usuario:@user}
     end
 
   end

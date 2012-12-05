@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :to_id %><br />
-    <%= f.number_field :to_id %>
-  </div>
-  <div class="field">
-    <%= f.label :subject %><br />
+    <%= f.label :Asunto %><br />
     <%= f.text_field :subject %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :Contenido %><br />
     <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :Usuario %><br />
+    <%= text_field('', :user, :size => 20)%>
   </div>
   <div class="actions">
     <%= f.submit %>

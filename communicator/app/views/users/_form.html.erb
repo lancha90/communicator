@@ -1,49 +1,59 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :firtname %><br />
-    <%= f.text_field :firtname %>
-  </div>
-  <div class="field">
-    <%= f.label :secondname %><br />
-    <%= f.text_field :secondname %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :dependence %><br />
-    <%= f.text_field :dependence %>
-  </div>
-  <div class="field">
-    <%= f.label :rol %><br />
-    <%= f.text_field :rol %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+	<%= f.label :username %>
+	<br />
+	<%= f.text_field :username %>
+</div>
+<div class="field">
+	<%= f.label :password %>
+	<br />
+	<%= f.password_field :password %>
+</div>
+<div class="field">
+	<%= f.label :firtname %>
+	<br />
+	<%= f.text_field :firtname %>
+</div>
+<div class="field">
+	<%= f.label :secondname %>
+	<br />
+	<%= f.text_field :secondname %>
+</div>
+<div class="field">
+	<%= f.label :code %>
+	<br />
+	<%= f.text_field :code %>
+</div>
+<div class="field">
+	<%= f.label :email %>
+	<br />
+	<%= f.text_field :email %>
+</div>
+<div class="field">
+	<%= f.label :dependence %>
+	<br />
+	<%= select( "", :dependence, { "Facultad" => "1", "Ingeniería Civil" => "2","Ingeniería de Sistemas" => "3","Ingeniería Electronica" => "4","Tec. Topografía" => "5","Tec. Obras Civiles" => "6","Centro de Extensión" => "7"}) %>
+</div>
+<div class="field">
+	<%= f.label :rol %>
+	<br />
+	<%= select( :user, :rol, { "Estudiante" => "1", "Profesor" => "2","Administrativo" => "3"}) %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>

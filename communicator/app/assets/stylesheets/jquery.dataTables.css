@@ -1,4 +1,4 @@
-#show_calls, #show_dependences {
+#show_calls, #show_dependences, .table {
 	border: 1px solid #e3e3e3;
 	background-color: #f2f2f2;
         width: 100%;
@@ -6,11 +6,11 @@
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 }
-#show_calls td, #show_calls th, #show_dependences td, #show_dependences th {
+#show_calls td, #show_calls th, #show_dependences td, #show_dependences th, .table td, .table th {
 	padding: 5px;
 	color: #333;
 }
-#show_calls thead, #show_dependences thead {
+#show_calls thead, #show_dependences thead, .table thead {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	padding: .2em 0 .2em .5em;
 	text-align: left;
@@ -20,7 +20,7 @@
 	background-image: -moz-linear-gradient(top, #D6D6D6, #B0B0B0, #B3B3B3 90%);
 	border-bottom: solid 1px #999;
 }
-#show_calls th, #show_dependences th {
+#show_calls th, #show_dependences th, .table th {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 17px;
 	line-height: 20px;
@@ -29,14 +29,14 @@
 	text-align: center;
 	text-shadow: white 1px 1px 1px;
 }
-#show_calls td, #show_dependences td {
+#show_calls td, #show_dependences td, .table td {
 	line-height: 20px;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	border-bottom: 1px solid #fff;
 	border-top: 1px solid #fff;
 }
-#show_calls td:hover, #show_dependences td:hover {
+#show_calls td:hover, #show_dependences td:hover, .table td:hover {
 	background-color: #fff;
 }
 #show_calls_paginate, #show_calls_info, #show_dependences_info{

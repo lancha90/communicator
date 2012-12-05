@@ -1,7 +1,5 @@
 Communicator::Application.routes.draw do
   
-  resources :faber_giraldos
-
   resources :private_messages
 
   resources :calls
