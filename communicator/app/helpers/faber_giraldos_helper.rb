@@ -1,2 +1,0 @@
-module FaberGiraldosHelper
-end
